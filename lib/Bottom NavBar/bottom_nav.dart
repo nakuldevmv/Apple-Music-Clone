@@ -48,7 +48,7 @@ class _FirstPageState extends State<FirstPage> {
           // // ),
           borderGradient: LinearGradient(
             colors: [
-              Colors.transparent
+              Color.fromARGB(0, 11, 11, 11)
             ], // Add this line to remove border stroke
             stops: [0],
           ),
