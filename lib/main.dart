@@ -4,6 +4,7 @@ import 'package:musicplayer/list.dart';
 import 'package:musicplayer/pages/album_page.dart';
 import 'package:musicplayer/pages/artist_list.dart';
 import 'package:musicplayer/pages/artist_page.dart';
+import 'package:musicplayer/pages/browse_page.dart';
 import 'package:musicplayer/pages/home_page.dart';
 import 'package:musicplayer/pages/music_list.dart';
 import 'package:musicplayer/pages/music_player.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/list_test': (context) => ListTest(),
         '/firstpage': (context) => FirstPage(),
+        '/browse': (context) => BrowsePage(),
         '/home': (context) => HomePage(),
         '/album': (context) => AlbumPage(),
         '/artist': (context) => ArtistPage(),

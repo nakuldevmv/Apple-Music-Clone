@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_widgets/glassmorphism_widgets.dart';
-import 'package:musicplayer/pages/album_page.dart';
 import 'package:musicplayer/pages/artist_list.dart';
+import 'package:musicplayer/pages/browse_page.dart';
 import 'package:musicplayer/pages/home_page.dart';
 import 'package:musicplayer/pages/music_list.dart';
 
@@ -25,7 +25,7 @@ class _FirstPageState extends State<FirstPage> {
 
   final List _pages = [
     HomePage(),
-    MusicList(),
+    BrowsePage(),
     ArtistList(),
     HomePage(),
     MusicList(),
