@@ -775,7 +775,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize: 15),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 7,
                           ),
                           ClipPath(
                             clipper: ShapeBorderClipper(

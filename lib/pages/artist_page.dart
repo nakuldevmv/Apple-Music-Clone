@@ -329,7 +329,7 @@ class _ArtistPageState extends State<ArtistPage> {
                       Container(
                         padding: EdgeInsetsDirectional.all(10),
                         // color: Color.fromARGB(255, 54, 36, 188),
-                        height: 140,
+                        height: 145,
                         width: 250,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
