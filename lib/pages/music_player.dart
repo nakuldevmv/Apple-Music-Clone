@@ -604,8 +604,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
                 ),
                 child: Image.network(
                   song[currentIndex ?? 0]['image'],
-                  height: 250,
-                  width: 250,
+                  height: 300,
+                  width: 300,
                   fit: BoxFit.cover,
                 )),
             SizedBox(

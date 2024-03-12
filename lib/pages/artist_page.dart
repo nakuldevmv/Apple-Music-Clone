@@ -251,6 +251,7 @@ class _ArtistPageState extends State<ArtistPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
+                            margin: EdgeInsets.only(top: 15),
                             padding: EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(150),

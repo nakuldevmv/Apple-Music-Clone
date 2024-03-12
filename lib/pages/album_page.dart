@@ -242,6 +242,7 @@ class _AlbumPageState extends State<AlbumPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
+                    margin: EdgeInsets.only(top: 15),
                     padding: EdgeInsets.all(5),
                     child: InkWell(
                       onTap: () {

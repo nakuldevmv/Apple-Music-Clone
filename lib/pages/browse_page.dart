@@ -76,6 +76,7 @@ class _BrowsePageState extends State<BrowsePage> {
             itemBuilder: (context, index) {
               return Container(
                 // color: Colors.red,
+                width: 370,
                 margin: EdgeInsets.only(left: 6, right: 6),
                 child: Center(
                   child: Column(
@@ -87,6 +88,7 @@ class _BrowsePageState extends State<BrowsePage> {
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                             color: Colors.grey),
+                        overflow: TextOverflow.ellipsis,
                       ),
                       Text(
                         ban[index]['t2'],
@@ -94,6 +96,7 @@ class _BrowsePageState extends State<BrowsePage> {
                             fontSize: 22,
                             fontWeight: FontWeight.normal,
                             color: Colors.white),
+                        overflow: TextOverflow.ellipsis,
                       ),
                       Text(
                         ban[index]['t3'],

@@ -583,11 +583,15 @@ class _MusicListState extends State<MusicList> {
                       SizedBox(
                         height: 5,
                       ),
-                      Text(
-                        song[index]['artist'],
-                        style: TextStyle(
-                            color: const Color.fromARGB(255, 182, 182, 182),
-                            fontSize: 13),
+                      Container(
+                        width: 190,
+                        child: Text(
+                          song[index]['artist'],
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              color: const Color.fromARGB(255, 182, 182, 182),
+                              fontSize: 13),
+                        ),
                       ),
                     ],
                   ),
