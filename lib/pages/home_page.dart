@@ -891,7 +891,7 @@ class _HomePageState extends State<HomePage> {
                           ClipPath(
                             clipper: ShapeBorderClipper(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                             ),
                             child: Image.network(
@@ -905,7 +905,7 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(padding: EdgeInsets.only(top: 1)),
+                              Padding(padding: EdgeInsets.only(top: 2.5)),
                               Container(
                                 width: 165,
                                 // color: Colors.amberAccent,
@@ -913,13 +913,18 @@ class _HomePageState extends State<HomePage> {
                                   song[index]['title'],
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 15,
+                                      color: Colors.white),
                                 ),
                               ),
                               Text(
                                 song[index]['artist'],
                                 overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 12,
+                                    color: Colors.grey),
                               ),
                             ],
                           )
