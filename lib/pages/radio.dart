@@ -76,149 +76,152 @@ class _RadioPageState extends State<RadioPage> {
           )
         ],
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(left: 10),
-                              // padding: EdgeInsets.all(5),
-                              child: Icon(
-                                Icons.apple,
-                                size: 25,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Container(
-                                margin: EdgeInsets.only(left: 1),
-                                child: Text("Music 1",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold))),
-                          ],
-                        ),
-                        Container(
-                            margin: EdgeInsets.only(left: 10),
-                            child: Text("The new music matter",
-                                style: TextStyle(
-                                    color: Colors.grey, fontSize: 15))),
-                      ],
-                    ),
-                    Icon(Icons.calendar_month_rounded),
-                  ],
-                ),
-                Container(
-                  // color: Colors.amber,
-                  margin: EdgeInsets.all(10),
-                  child: Column(
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Column(
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ClipPath(
-                        clipper: ShapeBorderClipper(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                topRight: Radius.circular(15)),
-                          ),
-                        ),
-                        child: Image.network(
-                          TopPicks[0]['image'],
-                          height: 280,
-                          width: 380,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      ClipPath(
-                        clipper: ShapeBorderClipper(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(15),
-                                bottomRight: Radius.circular(15)),
-                          ),
-                        ),
-                        child: Container(
-                          padding: EdgeInsets.only(left: 10, right: 10),
-                          height: 100,
-                          width: 380,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                            colors: [
-                              const Color.fromARGB(255, 83, 83, 83),
-                              Color.fromARGB(255, 65, 65, 65)
-                            ],
-                            stops: [0, 1],
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                          )),
-
-                          // color: Color.fromARGB(255, 255, 227, 114),
-                          child: Column(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                padding: EdgeInsets.all(10),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text("LIVE • 9:30 - 11:30 PM",
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.bold)),
-                                        Text(
-                                          TopPicks[0]['title'],
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                        Text(
-                                          TopPicks[0]['artist'],
-                                          style: TextStyle(
-                                              color: Colors.grey, fontSize: 18),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ],
-                                    ),
-                                    Icon(
-                                      Icons.play_circle_fill_rounded,
-                                      size: 35,
-                                      color: Colors.white,
-                                    ),
-                                  ],
+                                margin: EdgeInsets.only(left: 10),
+                                // padding: EdgeInsets.all(5),
+                                child: Icon(
+                                  Icons.apple,
+                                  size: 25,
+                                  color: Colors.white,
                                 ),
-                              )
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(left: 1),
+                                  child: Text("Music 1",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold))),
                             ],
                           ),
-                        ),
-                      )
+                          Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text("The new music matter",
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 15))),
+                        ],
+                      ),
+                      Icon(Icons.calendar_month_rounded),
                     ],
                   ),
-                ),
-              ],
-            )
-          ],
+                  Container(
+                    // color: Colors.amber,
+                    margin: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipPath(
+                          clipper: ShapeBorderClipper(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(15),
+                                  topRight: Radius.circular(15)),
+                            ),
+                          ),
+                          child: Image.network(
+                            TopPicks[0]['image'],
+                            height: 280,
+                            width: 380,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        ClipPath(
+                          clipper: ShapeBorderClipper(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(15),
+                                  bottomRight: Radius.circular(15)),
+                            ),
+                          ),
+                          child: Container(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            height: 100,
+                            width: 380,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                              colors: [
+                                const Color.fromARGB(255, 83, 83, 83),
+                                Color.fromARGB(255, 65, 65, 65)
+                              ],
+                              stops: [0, 1],
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                            )),
+
+                            // color: Color.fromARGB(255, 255, 227, 114),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text("LIVE • 9:30 - 11:30 PM",
+                                              style: TextStyle(
+                                                  color: Colors.grey,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold)),
+                                          Text(
+                                            TopPicks[0]['title'],
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          Text(
+                                            TopPicks[0]['artist'],
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 18),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.play_circle_fill_rounded,
+                                        size: 35,
+                                        color: Colors.white,
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
