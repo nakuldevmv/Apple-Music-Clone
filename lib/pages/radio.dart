@@ -16,7 +16,7 @@ class _RadioPageState extends State<RadioPage> {
         backgroundColor: Colors.black,
         toolbarHeight: 100,
         title: Text(
-          "Browse",
+          "Radio",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
         ),
         actions: [
