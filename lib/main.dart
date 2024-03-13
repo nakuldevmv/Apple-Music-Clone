@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musicplayer/Bottom%20NavBar/bottom_nav.dart';
-import 'package:musicplayer/list.dart';
+import 'package:musicplayer/pages/list.dart';
 import 'package:musicplayer/pages/album_page.dart';
 import 'package:musicplayer/pages/artist_list.dart';
 import 'package:musicplayer/pages/artist_page.dart';
@@ -8,6 +8,7 @@ import 'package:musicplayer/pages/browse_page.dart';
 import 'package:musicplayer/pages/home_page.dart';
 import 'package:musicplayer/pages/music_list.dart';
 import 'package:musicplayer/pages/music_player.dart';
+import 'package:musicplayer/pages/radio.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/list_test': (context) => ListTest(),
         '/firstpage': (context) => FirstPage(),
         '/browse': (context) => BrowsePage(),
+        '/radio': (context) => RadioPage(),
         '/home': (context) => HomePage(),
         '/album': (context) => AlbumPage(),
         '/artist': (context) => ArtistPage(),
