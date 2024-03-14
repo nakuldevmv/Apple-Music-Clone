@@ -96,7 +96,7 @@ class _LibraryPageState extends State<LibraryPage> {
                           ),
                         ],
                       ),
-                      Icon(Icons.multiline_chart_rounded)
+                      Icon(Icons.arrow_forward_ios_rounded)
                     ],
                   ),
                   Divider(
