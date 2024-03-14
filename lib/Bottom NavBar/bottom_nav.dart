@@ -5,6 +5,7 @@ import 'package:glassmorphism_widgets/glassmorphism_widgets.dart';
 import 'package:musicplayer/pages/artist_list.dart';
 import 'package:musicplayer/pages/browse_page.dart';
 import 'package:musicplayer/pages/home_page.dart';
+import 'package:musicplayer/pages/library_page.dart';
 import 'package:musicplayer/pages/music_list.dart';
 import 'package:musicplayer/pages/radio.dart';
 
@@ -28,7 +29,7 @@ class _FirstPageState extends State<FirstPage> {
     HomePage(),
     BrowsePage(),
     RadioPage(),
-    HomePage(),
+    LibraryPage(),
     MusicList(),
   ];
 

@@ -10,6 +10,8 @@ import 'package:musicplayer/pages/music_list.dart';
 import 'package:musicplayer/pages/music_player.dart';
 import 'package:musicplayer/pages/radio.dart';
 
+import 'pages/library_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/firstpage': (context) => FirstPage(),
         '/browse': (context) => BrowsePage(),
         '/radio': (context) => RadioPage(),
+        'library': (context) => LibraryPage(),
         '/home': (context) => HomePage(),
         '/album': (context) => AlbumPage(),
         '/artist': (context) => ArtistPage(),
