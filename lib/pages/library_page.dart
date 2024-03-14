@@ -33,12 +33,82 @@ class _LibraryPageState extends State<LibraryPage> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              child: Text("data"),
-            )
-          ],
+        child: Container(
+          margin: EdgeInsets.only(left: 10, right: 10),
+          child: Column(
+            children: [
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.queue_music_rounded,
+                            color: Colors.red,
+                            size: 40,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "Playlist",
+                            style: TextStyle(
+                                color: Colors.white,
+                                // fontWeight: FontWeight.bold,
+                                fontSize: 30),
+                          ),
+                        ],
+                      ),
+                      Icon(Icons.arrow_forward_ios_rounded)
+                    ],
+                  ),
+                  Divider(
+                    color: Color.fromARGB(255, 103, 103, 103),
+                    thickness: .4,
+                    indent: 50,
+                    endIndent: 0,
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.queue_music_rounded,
+                            color: Colors.red,
+                            size: 40,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "Artist",
+                            style: TextStyle(
+                                color: Colors.white,
+                                // fontWeight: FontWeight.bold,
+                                fontSize: 30),
+                          ),
+                        ],
+                      ),
+                      Icon(Icons.multiline_chart_rounded)
+                    ],
+                  ),
+                  Divider(
+                    color: Color.fromARGB(255, 103, 103, 103),
+                    thickness: .4,
+                    indent: 50,
+                    endIndent: 0,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
