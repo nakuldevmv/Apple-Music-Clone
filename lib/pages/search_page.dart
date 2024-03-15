@@ -202,7 +202,7 @@ class _SearchPageState extends State<SearchPage> {
                 Icon(
                   Icons.search,
                   size: 30,
-                  color: Colors.grey,
+                  color: const Color.fromARGB(255, 157, 157, 157),
                 ),
                 Container(
                   // color: Colors.amber,
