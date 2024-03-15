@@ -166,7 +166,7 @@ class _SearchPageState extends State<SearchPage> {
       backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: AppBar(
         backgroundColor: Colors.black,
-        toolbarHeight: 100,
+        toolbarHeight: 1000,
         title: Text(
           "Search",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
