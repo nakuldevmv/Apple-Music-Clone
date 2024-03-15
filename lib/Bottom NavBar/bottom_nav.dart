@@ -8,6 +8,7 @@ import 'package:musicplayer/pages/home_page.dart';
 import 'package:musicplayer/pages/library_page.dart';
 import 'package:musicplayer/pages/music_list.dart';
 import 'package:musicplayer/pages/radio.dart';
+import 'package:musicplayer/pages/search_page.dart';
 
 class FirstPage extends StatefulWidget {
   FirstPage({super.key});
@@ -30,7 +31,7 @@ class _FirstPageState extends State<FirstPage> {
     BrowsePage(),
     RadioPage(),
     LibraryPage(),
-    MusicList(),
+    SearchPage(),
   ];
 
   @override
