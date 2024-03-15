@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 
@@ -681,19 +683,14 @@ class _LibraryPageState extends State<LibraryPage> {
                     margin: EdgeInsets.only(top: 20),
                     height: 30,
                     padding: EdgeInsets.only(left: 15),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/musiclist');
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            "Recently Played",
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Recently Added",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
                   Container(
@@ -704,62 +701,58 @@ class _LibraryPageState extends State<LibraryPage> {
                       padding: EdgeInsets.all(10),
                       itemCount: 10,
                       itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/player',
-                                arguments: {'index': index});
-                          },
-                          child: Container(
-                            // color: Colors.amber,
-                            margin: EdgeInsets.only(right: 10, left: 6),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                ClipPath(
-                                  clipper: ShapeBorderClipper(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  child: Image.network(
-                                    song[index]['image'],
-                                    height: 170,
-                                    width: 170,
-                                    fit: BoxFit.cover,
+                        int randomIndex = Random().nextInt(song.length);
+
+                        return Container(
+                          // color: Colors.amber,
+                          margin: EdgeInsets.only(right: 10, left: 6),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              ClipPath(
+                                clipper: ShapeBorderClipper(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(padding: EdgeInsets.only(top: 2.5)),
-                                    Container(
-                                      width: 165,
-                                      // color: Colors.amberAccent,
-                                      child: Text(
-                                        song[index]['title'],
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 15,
-                                            color: Colors.white),
-                                      ),
-                                    ),
-                                    Text(
-                                      song[index]['artist'],
+                                child: Image.network(
+                                  song[randomIndex]['image'],
+                                  height: 170,
+                                  width: 170,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(padding: EdgeInsets.only(top: 2.5)),
+                                  Container(
+                                    width: 165,
+                                    // color: Colors.amberAccent,
+                                    child: Text(
+                                      song[randomIndex]['title'],
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                           fontWeight: FontWeight.normal,
-                                          fontSize: 12,
-                                          color: Colors.grey),
+                                          fontSize: 15,
+                                          color: Colors.white),
                                     ),
-                                  ],
-                                )
-                              ],
-                            ),
+                                  ),
+                                  Text(
+                                    song[randomIndex]['artist'],
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 12,
+                                        color: Colors.grey),
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
                         );
                       },
