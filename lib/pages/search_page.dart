@@ -11,7 +11,30 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Search Page")),
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        toolbarHeight: 100,
+        title: Text(
+          "Search",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+        ),
+        actions: [
+          Container(
+            // color: Colors.amber,
+            padding: EdgeInsets.only(right: 5),
+            child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.account_circle_rounded,
+                  size: 40,
+                )),
+          )
+        ],
+      ),
+      body: Container(
+        child: TextField(),
+      ),
     );
   }
 }

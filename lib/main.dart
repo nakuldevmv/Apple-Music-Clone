@@ -9,6 +9,7 @@ import 'package:musicplayer/pages/home_page.dart';
 import 'package:musicplayer/pages/music_list.dart';
 import 'package:musicplayer/pages/music_player.dart';
 import 'package:musicplayer/pages/radio.dart';
+import 'package:musicplayer/pages/search_page.dart';
 
 import 'pages/library_page.dart';
 
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         '/firstpage': (context) => FirstPage(),
         '/browse': (context) => BrowsePage(),
         '/radio': (context) => RadioPage(),
-        'library': (context) => LibraryPage(),
+        '/library': (context) => LibraryPage(),
+        '/search': (context) => SearchPage(),
         '/home': (context) => HomePage(),
         '/album': (context) => AlbumPage(),
         '/artist': (context) => ArtistPage(),
