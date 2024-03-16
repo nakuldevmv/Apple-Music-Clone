@@ -586,8 +586,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       size: Size(200, 200),
     );
     if (paletteGenerator != null && paletteGenerator!.colors.isNotEmpty) {
-      Color color1 = paletteGenerator!.dominantColor?.color ?? colors[0];
-      Color color2 = paletteGenerator!.mutedColor?.color ?? colors[1];
+      Color color1 = paletteGenerator!.lightVibrantColor?.color ?? colors[0];
+      Color color2 = paletteGenerator!.darkVibrantColor?.color ?? colors[1];
       setState(() {
         colors = [color1, color2];
       });
@@ -748,8 +748,19 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         pressedElevation: 0,
                       ),
                       thumbColor: Colors.transparent,
-                      overlayColor: const Color.fromARGB(255, 255, 255, 255)
-                          .withOpacity(0),
+                      overlayColor: Colors.transparent,
+                      activeTickMarkColor: Colors.transparent,
+                      disabledThumbColor: Colors.transparent,
+                      valueIndicatorColor: Colors.transparent,
+                      inactiveTickMarkColor: Colors.transparent,
+                      disabledActiveTrackColor: Colors.transparent,
+                      secondaryActiveTrackColor: Colors.transparent,
+                      valueIndicatorStrokeColor: Colors.transparent,
+                      disabledInactiveTrackColor: Colors.transparent,
+                      disabledActiveTickMarkColor: Colors.transparent,
+                      overlappingShapeStrokeColor: Colors.transparent,
+                      disabledInactiveTickMarkColor: Colors.transparent,
+                      disabledSecondaryActiveTrackColor: Colors.transparent,
                     ),
                     child: Slider(
                       min: 0,
