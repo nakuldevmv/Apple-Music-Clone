@@ -1,7 +1,10 @@
+import 'dart:js_interop';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 class MusicPlayer extends StatefulWidget {
   const MusicPlayer({super.key});
@@ -523,6 +526,9 @@ class _MusicPlayerState extends State<MusicPlayer> {
   void initState() {
     super.initState();
 
+    // List<Color> color1 = [];
+    // List<Color> color2 = [];
+
     audioPlayer.onPlayerStateChanged.listen((state) {
       if (state == PlayerState.completed) {
         // Handle completion
@@ -576,6 +582,22 @@ class _MusicPlayerState extends State<MusicPlayer> {
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 
+  void addColor() async {
+    for (String image in song[currentIndex]['image']) {
+      final PaletteGenerator pg = await PaletteGenerator.fromImageProvider(
+        NetworkImage(image),
+        size: Size(200, 200),
+      );
+      List color1 = [], color2 = [];
+      color1.add(pg.dominantColor == Null
+          ? PaletteColor(Colors.black, 2)
+          : pg.dominantColor);
+      color2.add(pg.darkVibrantColor == Null
+          ? PaletteColor(Colors.black, 2)
+          : pg.darkMutedColor);
+    } //////////////////////////////////////////////////////
+  }
+
   @override
   Widget build(BuildContext context) {
     //this below code will fetch the index or data from the inWell argument
@@ -601,204 +623,200 @@ class _MusicPlayerState extends State<MusicPlayer> {
       ),
       body: Center(
         child: Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-              colors: [Color(0xff1c1c1c), Color(0xff554e4e)],
-              stops: [0.25, 0.75],
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-            )),
+            // decoration: BoxDecoration(
+            //     gradient: LinearGradient(
+            //   colors: colors,
+            //   begin: Alignment.bottomLeft,
+            //   end: Alignment.topRight,
+            // )),
+
             // height: 500,
             // width: 500,
             child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ClipPath(
+                clipper: ShapeBorderClipper(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+                child: Image.network(
+                  song[currentIndex ?? 0]['image'],
+                  height: 300,
+                  width: 300,
+                  fit: BoxFit.cover,
+                )),
+            SizedBox(
+              height: 60,
+            ),
+            Container(
+              // color: Color.fromARGB(255, 13, 0, 132),
+              padding: EdgeInsets.only(left: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    // color: Colors.blue,
+                    width: 270,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          song[currentIndex ?? 0]['title'],
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              overflow: TextOverflow.ellipsis),
+                        ),
+                        SizedBox(
+                          height: 3,
+                        ),
+                        Text(song[currentIndex ?? 0]['artist']),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    // color: Colors.amber,
+                    margin: EdgeInsets.only(right: 22),
+                    child: Row(
+                      children: [
+                        // Padding(padding: EdgeInsets.only(right: 10)),
+                        Icon(
+                          Icons.stars,
+                          size: 33,
+                          color: Color.fromARGB(223, 228, 228, 228),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Container(
+                          // ignore: prefer_const_constructors
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color.fromARGB(158, 136, 136, 136)),
+                          // color: Colors.black12,
+                          child: Icon(
+                            Icons.more_horiz_rounded,
+                            size: 29,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              // color: Colors.amber,
+              height: 20,
+              child: SliderTheme(
+                data: SliderTheme.of(context).copyWith(
+                  trackHeight: 5.0,
+                  trackShape: RoundedRectSliderTrackShape(),
+                  activeTrackColor: const Color.fromARGB(255, 233, 233, 233),
+                  inactiveTrackColor: const Color.fromARGB(255, 80, 80, 80),
+                  thumbShape: RoundSliderThumbShape(
+                    elevation: 0,
+                    pressedElevation: 0,
+                  ),
+                  thumbColor: Colors.transparent,
+                  overlayColor:
+                      const Color.fromARGB(255, 255, 255, 255).withOpacity(0),
+                ),
+                child: Slider(
+                  min: 0,
+                  max: duration.inSeconds.toDouble(),
+                  value: position.inSeconds
+                      .clamp(0, duration.inSeconds)
+                      .toDouble(),
+                  onChanged: (value) {
+                    final newPosition = Duration(seconds: value.toInt());
+                    audioPlayer.seek(newPosition);
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 22, right: 22),
+              // color: Colors.indigo,
+              // width: 340,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Padding(padding: EdgeInsets.only(left: 10, right: 10)),
+                  Text(
+                    formatTime(position),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                  Text(formatTime(duration - position),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ClipPath(
-                    clipper: ShapeBorderClipper(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                    child: Image.network(
-                      song[currentIndex ?? 0]['image'],
-                      height: 300,
-                      width: 300,
-                      fit: BoxFit.cover,
-                    )),
-                SizedBox(
-                  height: 60,
-                ),
-                Container(
-                  // color: Color.fromARGB(255, 13, 0, 132),
-                  padding: EdgeInsets.only(left: 25),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        // color: Colors.blue,
-                        width: 270,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              song[currentIndex ?? 0]['title'],
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  overflow: TextOverflow.ellipsis),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Text(song[currentIndex ?? 0]['artist']),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // color: Colors.amber,
-                        margin: EdgeInsets.only(right: 22),
-                        child: Row(
-                          children: [
-                            // Padding(padding: EdgeInsets.only(right: 10)),
-                            Icon(
-                              Icons.stars,
-                              size: 33,
-                              color: Color.fromARGB(223, 228, 228, 228),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Container(
-                              // ignore: prefer_const_constructors
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color.fromARGB(158, 136, 136, 136)),
-                              // color: Colors.black12,
-                              child: Icon(
-                                Icons.more_horiz_rounded,
-                                size: 29,
-                                color: Color.fromARGB(255, 255, 255, 255),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                IconButton(
+                  icon: Icon(
+                    Icons.fast_rewind_rounded,
+                    size: 70,
+                    color: const Color.fromARGB(255, 255, 255, 255),
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  // color: Colors.amber,
-                  height: 20,
-                  child: SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      trackHeight: 5.0,
-                      trackShape: RoundedRectSliderTrackShape(),
-                      activeTrackColor:
-                          const Color.fromARGB(255, 233, 233, 233),
-                      inactiveTrackColor: const Color.fromARGB(255, 80, 80, 80),
-                      thumbShape: RoundSliderThumbShape(
-                        elevation: 0,
-                        pressedElevation: 0,
-                      ),
-                      thumbColor: Colors.transparent,
-                      overlayColor: const Color.fromARGB(255, 255, 255, 255)
-                          .withOpacity(0),
-                    ),
-                    child: Slider(
-                      min: 0,
-                      max: duration.inSeconds.toDouble(),
-                      value: position.inSeconds
-                          .clamp(0, duration.inSeconds)
-                          .toDouble(),
-                      onChanged: (value) {
-                        final newPosition = Duration(seconds: value.toInt());
-                        audioPlayer.seek(newPosition);
-                      },
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 22, right: 22),
-                  // color: Colors.indigo,
-                  // width: 340,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      // Padding(padding: EdgeInsets.only(left: 10, right: 10)),
-                      Text(
-                        formatTime(position),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      Text(formatTime(duration - position),
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15))
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.fast_rewind_rounded,
-                        size: 70,
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      onPressed: currentIndex > 0
-                          ? () {
-                              setState(() {
-                                currentIndex--; // Decrement the current index
-                              });
-                              _loadSong(currentIndex);
-                            }
-                          : null,
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        isPlaying
-                            ? Icons.pause_rounded
-                            : Icons.play_arrow_rounded,
-                        size: 70,
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      onPressed: () {
-                        if (isPlaying) {
-                          audioPlayer.pause();
-                        } else {
-                          audioPlayer.play(
-                              UrlSource(song[currentIndex ?? 0]['source']));
+                  onPressed: currentIndex > 0
+                      ? () {
+                          setState(() {
+                            currentIndex--; // Decrement the current index
+                          });
+                          _loadSong(currentIndex);
                         }
-                      },
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.fast_forward_rounded,
-                        size: 70,
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      onPressed: currentIndex < song.length - 1
-                          ? () {
-                              setState(() {
-                                currentIndex++; // Increment the current index
-                              });
-                              _loadSong(currentIndex);
-                            }
-                          : null,
-                    ),
-                  ],
-                )
+                      : null,
+                ),
+                IconButton(
+                  icon: Icon(
+                    isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                    size: 70,
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                  ),
+                  onPressed: () {
+                    if (isPlaying) {
+                      audioPlayer.pause();
+                    } else {
+                      audioPlayer
+                          .play(UrlSource(song[currentIndex ?? 0]['source']));
+                    }
+                  },
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.fast_forward_rounded,
+                    size: 70,
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                  ),
+                  onPressed: currentIndex < song.length - 1
+                      ? () {
+                          setState(() {
+                            currentIndex++; // Increment the current index
+                          });
+                          _loadSong(currentIndex);
+                        }
+                      : null,
+                ),
               ],
-            )),
+            )
+          ],
+        )),
       ),
     );
   }
