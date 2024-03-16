@@ -23,7 +23,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+          colorScheme: ColorScheme.dark(),
+          scaffoldBackgroundColor: Color.fromARGB(255, 0, 0, 0),
+          appBarTheme: AppBarTheme(backgroundColor: Colors.transparent)),
       debugShowCheckedModeBanner: false,
       initialRoute: '/firstpage',
       routes: {

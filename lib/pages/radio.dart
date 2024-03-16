@@ -561,9 +561,7 @@ class _RadioPageState extends State<RadioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         toolbarHeight: 100,
         title: Text(
           "Radio",

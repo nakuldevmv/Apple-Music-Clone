@@ -514,9 +514,7 @@ class _LibraryPageState extends State<LibraryPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         toolbarHeight: 100,
         title: Text(
           "Library",

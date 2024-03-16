@@ -513,9 +513,7 @@ class _MusicListState extends State<MusicList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.red),
           onPressed: () {

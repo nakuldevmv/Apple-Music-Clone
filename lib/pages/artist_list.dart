@@ -172,9 +172,7 @@ class _ArtistListState extends State<ArtistList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         title: Text(
           "           Favourite Artist",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
