@@ -643,7 +643,19 @@ class _MusicPlayerState extends State<MusicPlayer> {
                 SizedBox(
                   height: 60,
                 ),
-                ClipPath(
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromARGB(97, 0, 0, 0),
+                        blurRadius: 10.0,
+                        spreadRadius: 2.0,
+                      ),
+                    ],
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: ClipPath(
                     clipper: ShapeBorderClipper(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
@@ -651,10 +663,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     ),
                     child: Image.network(
                       song[currentIndex ?? 0]['image'],
-                      height: 300,
-                      width: 300,
+                      height: 350,
+                      width: 350,
                       fit: BoxFit.cover,
-                    )),
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 60,
                 ),
