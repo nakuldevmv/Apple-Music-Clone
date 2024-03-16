@@ -586,8 +586,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       size: Size(200, 200),
     );
     if (paletteGenerator != null && paletteGenerator!.colors.isNotEmpty) {
-      Color color1 = paletteGenerator!.lightVibrantColor?.color ?? colors[0];
-      Color color2 = paletteGenerator!.darkVibrantColor?.color ?? colors[1];
+      Color color1 = paletteGenerator!.dominantColor?.color ?? colors[0];
+      Color color2 = paletteGenerator!.mutedColor?.color ?? colors[1];
       setState(() {
         colors = [color1, color2];
       });

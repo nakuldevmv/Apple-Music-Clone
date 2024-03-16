@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 
 class LibraryPage extends StatefulWidget {
@@ -558,7 +559,7 @@ class _LibraryPageState extends State<LibraryPage> {
                             style: TextStyle(
                                 color: Colors.white,
                                 // fontWeight: FontWeight.bold,
-                                fontSize: 30),
+                                fontSize: 20),
                           ),
                         ],
                       ),
@@ -593,7 +594,7 @@ class _LibraryPageState extends State<LibraryPage> {
                             style: TextStyle(
                                 color: Colors.white,
                                 // fontWeight: FontWeight.bold,
-                                fontSize: 30),
+                                fontSize: 20),
                           ),
                         ],
                       ),
@@ -628,7 +629,7 @@ class _LibraryPageState extends State<LibraryPage> {
                             style: TextStyle(
                                 color: Colors.white,
                                 // fontWeight: FontWeight.bold,
-                                fontSize: 30),
+                                fontSize: 20),
                           ),
                         ],
                       ),
@@ -643,120 +644,125 @@ class _LibraryPageState extends State<LibraryPage> {
                   ),
                 ],
               ),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/musiclist");
+                },
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.music_note,
+                              color: Colors.red,
+                              size: 40,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Songs",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  // fontWeight: FontWeight.bold,
+                                  fontSize: 20),
+                            ),
+                          ],
+                        ),
+                        Icon(Icons.arrow_forward_ios_rounded)
+                      ],
+                    ),
+                    Divider(
+                      color: Color.fromARGB(255, 103, 103, 103),
+                      thickness: .4,
+                      indent: 50,
+                      endIndent: 0,
+                    ),
+                    Container(
+                      // color: Colors.amber,
+                      margin: EdgeInsets.only(top: 20),
+                      height: 30,
+                      padding: EdgeInsets.only(left: 15),
+                      child: Row(
                         children: [
-                          Icon(
-                            Icons.music_note,
-                            color: Colors.red,
-                            size: 40,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
                           Text(
-                            "Songs",
+                            "Recently Added",
                             style: TextStyle(
-                                color: Colors.white,
-                                // fontWeight: FontWeight.bold,
-                                fontSize: 30),
+                                fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
-                      Icon(Icons.arrow_forward_ios_rounded)
-                    ],
-                  ),
-                  Divider(
-                    color: Color.fromARGB(255, 103, 103, 103),
-                    thickness: .4,
-                    indent: 50,
-                    endIndent: 0,
-                  ),
-                  Container(
-                    // color: Colors.amber,
-                    margin: EdgeInsets.only(top: 20),
-                    height: 30,
-                    padding: EdgeInsets.only(left: 15),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Recently Added",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                      ],
                     ),
-                  ),
-                  Container(
-                    // color: Color.fromARGB(255, 5, 69, 68),
-                    height: 250,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.all(10),
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        int randomIndex = Random().nextInt(song.length);
+                    Container(
+                      // color: Color.fromARGB(255, 5, 69, 68),
+                      height: 250,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        padding: EdgeInsets.all(10),
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          int randomIndex = Random().nextInt(song.length);
 
-                        return Container(
-                          // color: Colors.amber,
-                          margin: EdgeInsets.only(right: 10, left: 6),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 10,
-                              ),
-                              ClipPath(
-                                clipper: ShapeBorderClipper(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
+                          return Container(
+                            // color: Colors.amber,
+                            margin: EdgeInsets.only(right: 10, left: 6),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                ClipPath(
+                                  clipper: ShapeBorderClipper(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                  child: Image.network(
+                                    song[randomIndex]['image'],
+                                    height: 170,
+                                    width: 170,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                                child: Image.network(
-                                  song[randomIndex]['image'],
-                                  height: 170,
-                                  width: 170,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(padding: EdgeInsets.only(top: 2.5)),
-                                  Container(
-                                    width: 165,
-                                    // color: Colors.amberAccent,
-                                    child: Text(
-                                      song[randomIndex]['title'],
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(padding: EdgeInsets.only(top: 2.5)),
+                                    Container(
+                                      width: 165,
+                                      // color: Colors.amberAccent,
+                                      child: Text(
+                                        song[randomIndex]['title'],
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 15,
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                    Text(
+                                      song[randomIndex]['artist'],
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                           fontWeight: FontWeight.normal,
-                                          fontSize: 15,
-                                          color: Colors.white),
+                                          fontSize: 12,
+                                          color: Colors.grey),
                                     ),
-                                  ),
-                                  Text(
-                                    song[randomIndex]['artist'],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 12,
-                                        color: Colors.grey),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        );
-                      },
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
