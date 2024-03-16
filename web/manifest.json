@@ -1,6 +1,6 @@
 {
-    "name": "musicplayer",
-    "short_name": "musicplayer",
+    "name": "Apple Music Clone",
+    "short_name": "Apple Music Clone",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
