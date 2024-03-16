@@ -26,7 +26,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           colorScheme: ColorScheme.dark(),
           scaffoldBackgroundColor: Color.fromARGB(255, 0, 0, 0),
-          appBarTheme: AppBarTheme(backgroundColor: Colors.transparent)),
+          appBarTheme: AppBarTheme(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              scrolledUnderElevation: 0)),
       debugShowCheckedModeBanner: false,
       initialRoute: '/firstpage',
       routes: {
