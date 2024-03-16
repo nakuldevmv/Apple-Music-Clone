@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -516,6 +514,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
 
   //variable for music audioPlayer
   final AudioPlayer audioPlayer = AudioPlayer();
+  PaletteGenerator? paletteGenerator;
+  List<Color> colors = [Colors.white, Colors.black];
   bool isPlaying = false;
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
@@ -525,10 +525,11 @@ class _MusicPlayerState extends State<MusicPlayer> {
   @override
   void initState() {
     super.initState();
+    _updatePaletteGenerator(currentIndex);
+    changeImage(currentIndex);
 
     // List<Color> color1 = [];
     // List<Color> color2 = [];
-
     audioPlayer.onPlayerStateChanged.listen((state) {
       if (state == PlayerState.completed) {
         // Handle completion
@@ -557,7 +558,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
         setState(() {
           currentIndex = routes['index']!;
         });
-        _loadSong(currentIndex); // Load the song based on the index
+        _loadSong(currentIndex!); // Load the song based on the index
       }
     });
   }
@@ -567,12 +568,38 @@ class _MusicPlayerState extends State<MusicPlayer> {
   //   audioPlayer.dispose();
   //   super.dispose();
   // }
+  void changeImage(int newIndex) async {
+    // Update the current index to the new index
+    setState(() {
+      currentIndex = newIndex;
+    });
+
+    // Call _updatePaletteGenerator to update the colors based on the new image
+    await _updatePaletteGenerator(currentIndex);
+  }
+
+  Future<void> _updatePaletteGenerator(int index) async {
+    if (index == null) return; // Ensure we have a current index
+    final String imageUrl = song[index!]['image']!;
+    paletteGenerator = await PaletteGenerator.fromImageProvider(
+      NetworkImage(imageUrl),
+      size: Size(200, 200),
+    );
+    if (paletteGenerator != null && paletteGenerator!.colors.isNotEmpty) {
+      Color color1 = paletteGenerator!.dominantColor?.color ?? colors[0];
+      Color color2 = paletteGenerator!.mutedColor?.color ?? colors[1];
+      setState(() {
+        colors = [color1, color2];
+      });
+    }
+  }
 
   void _loadSong(int index) async {
     await audioPlayer.setSourceUrl(song[index]['source']);
     // Additional code to play the song right after loading if needed
     if (!isPlaying) {
       audioPlayer.play(UrlSource(song[index]['source']));
+      await _updatePaletteGenerator(index);
     }
   }
 
@@ -582,30 +609,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 
-  void addColor() async {
-    for (String image in song[currentIndex]['image']) {
-      final PaletteGenerator pg = await PaletteGenerator.fromImageProvider(
-        NetworkImage(image),
-        size: Size(200, 200),
-      );
-      List color1 = [], color2 = [];
-      color1.add(pg.dominantColor == Null
-          ? PaletteColor(Colors.black, 2)
-          : pg.dominantColor);
-      color2.add(pg.darkVibrantColor == Null
-          ? PaletteColor(Colors.black, 2)
-          : pg.darkMutedColor);
-    } //////////////////////////////////////////////////////
-  }
-
   @override
   Widget build(BuildContext context) {
-    //this below code will fetch the index or data from the inWell argument
-    // final routes =
-    //     ModalRoute.of(context)?.settings.arguments as Map<String, int>;
-
-    // int? i = routes['index']?.toInt();
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -623,200 +628,207 @@ class _MusicPlayerState extends State<MusicPlayer> {
       ),
       body: Center(
         child: Container(
-            // decoration: BoxDecoration(
-            //     gradient: LinearGradient(
-            //   colors: colors,
-            //   begin: Alignment.bottomLeft,
-            //   end: Alignment.topRight,
-            // )),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+              colors: colors,
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+            )),
 
             // height: 500,
             // width: 500,
             child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ClipPath(
-                clipper: ShapeBorderClipper(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-                child: Image.network(
-                  song[currentIndex ?? 0]['image'],
-                  height: 300,
-                  width: 300,
-                  fit: BoxFit.cover,
-                )),
-            SizedBox(
-              height: 60,
-            ),
-            Container(
-              // color: Color.fromARGB(255, 13, 0, 132),
-              padding: EdgeInsets.only(left: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    // color: Colors.blue,
-                    width: 270,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          song[currentIndex ?? 0]['title'],
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              overflow: TextOverflow.ellipsis),
-                        ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        Text(song[currentIndex ?? 0]['artist']),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    // color: Colors.amber,
-                    margin: EdgeInsets.only(right: 22),
-                    child: Row(
-                      children: [
-                        // Padding(padding: EdgeInsets.only(right: 10)),
-                        Icon(
-                          Icons.stars,
-                          size: 33,
-                          color: Color.fromARGB(223, 228, 228, 228),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Container(
-                          // ignore: prefer_const_constructors
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color.fromARGB(158, 136, 136, 136)),
-                          // color: Colors.black12,
-                          child: Icon(
-                            Icons.more_horiz_rounded,
-                            size: 29,
-                            color: Color.fromARGB(255, 255, 255, 255),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              // color: Colors.amber,
-              height: 20,
-              child: SliderTheme(
-                data: SliderTheme.of(context).copyWith(
-                  trackHeight: 5.0,
-                  trackShape: RoundedRectSliderTrackShape(),
-                  activeTrackColor: const Color.fromARGB(255, 233, 233, 233),
-                  inactiveTrackColor: const Color.fromARGB(255, 80, 80, 80),
-                  thumbShape: RoundSliderThumbShape(
-                    elevation: 0,
-                    pressedElevation: 0,
-                  ),
-                  thumbColor: Colors.transparent,
-                  overlayColor:
-                      const Color.fromARGB(255, 255, 255, 255).withOpacity(0),
-                ),
-                child: Slider(
-                  min: 0,
-                  max: duration.inSeconds.toDouble(),
-                  value: position.inSeconds
-                      .clamp(0, duration.inSeconds)
-                      .toDouble(),
-                  onChanged: (value) {
-                    final newPosition = Duration(seconds: value.toInt());
-                    audioPlayer.seek(newPosition);
-                  },
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 22, right: 22),
-              // color: Colors.indigo,
-              // width: 340,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Padding(padding: EdgeInsets.only(left: 10, right: 10)),
-                  Text(
-                    formatTime(position),
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                  ),
-                  Text(formatTime(duration - position),
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                  icon: Icon(
-                    Icons.fast_rewind_rounded,
-                    size: 70,
-                    color: const Color.fromARGB(255, 255, 255, 255),
+                SizedBox(
+                  height: 60,
+                ),
+                ClipPath(
+                    clipper: ShapeBorderClipper(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                    child: Image.network(
+                      song[currentIndex ?? 0]['image'],
+                      height: 300,
+                      width: 300,
+                      fit: BoxFit.cover,
+                    )),
+                SizedBox(
+                  height: 60,
+                ),
+                Container(
+                  // color: Color.fromARGB(255, 13, 0, 132),
+                  padding: EdgeInsets.only(left: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        // color: Colors.blue,
+                        width: 270,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              song[currentIndex ?? 0]['title'],
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  overflow: TextOverflow.ellipsis),
+                            ),
+                            SizedBox(
+                              height: 3,
+                            ),
+                            Text(song[currentIndex ?? 0]['artist']),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        // color: Colors.amber,
+                        margin: EdgeInsets.only(right: 22),
+                        child: Row(
+                          children: [
+                            // Padding(padding: EdgeInsets.only(right: 10)),
+                            Icon(
+                              Icons.stars,
+                              size: 33,
+                              color: Color.fromARGB(223, 228, 228, 228),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Container(
+                              // ignore: prefer_const_constructors
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color.fromARGB(158, 136, 136, 136)),
+                              // color: Colors.black12,
+                              child: Icon(
+                                Icons.more_horiz_rounded,
+                                size: 29,
+                                color: Color.fromARGB(255, 255, 255, 255),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  onPressed: currentIndex > 0
-                      ? () {
-                          setState(() {
-                            currentIndex--; // Decrement the current index
-                          });
-                          _loadSong(currentIndex);
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  // color: Colors.amber,
+                  height: 20,
+                  child: SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      trackHeight: 5.0,
+                      trackShape: RoundedRectSliderTrackShape(),
+                      activeTrackColor:
+                          const Color.fromARGB(255, 233, 233, 233),
+                      inactiveTrackColor: const Color.fromARGB(255, 80, 80, 80),
+                      thumbShape: RoundSliderThumbShape(
+                        elevation: 0,
+                        pressedElevation: 0,
+                      ),
+                      thumbColor: Colors.transparent,
+                      overlayColor: const Color.fromARGB(255, 255, 255, 255)
+                          .withOpacity(0),
+                    ),
+                    child: Slider(
+                      min: 0,
+                      max: duration.inSeconds.toDouble(),
+                      value: position.inSeconds
+                          .clamp(0, duration.inSeconds)
+                          .toDouble(),
+                      onChanged: (value) {
+                        final newPosition = Duration(seconds: value.toInt());
+                        audioPlayer.seek(newPosition);
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 22, right: 22),
+                  // color: Colors.indigo,
+                  // width: 340,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Padding(padding: EdgeInsets.only(left: 10, right: 10)),
+                      Text(
+                        formatTime(position),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      Text(formatTime(duration - position),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15))
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.fast_rewind_rounded,
+                        size: 70,
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                      ),
+                      onPressed: currentIndex > 0
+                          ? () {
+                              setState(() {
+                                currentIndex--; // Decrement the current index
+                              });
+                              _loadSong(currentIndex!);
+                            }
+                          : null,
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        isPlaying
+                            ? Icons.pause_rounded
+                            : Icons.play_arrow_rounded,
+                        size: 70,
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                      ),
+                      onPressed: () {
+                        if (isPlaying) {
+                          audioPlayer.pause();
+                        } else {
+                          audioPlayer.play(
+                              UrlSource(song[currentIndex ?? 0]['source']));
                         }
-                      : null,
-                ),
-                IconButton(
-                  icon: Icon(
-                    isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
-                    size: 70,
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                  ),
-                  onPressed: () {
-                    if (isPlaying) {
-                      audioPlayer.pause();
-                    } else {
-                      audioPlayer
-                          .play(UrlSource(song[currentIndex ?? 0]['source']));
-                    }
-                  },
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.fast_forward_rounded,
-                    size: 70,
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                  ),
-                  onPressed: currentIndex < song.length - 1
-                      ? () {
-                          setState(() {
-                            currentIndex++; // Increment the current index
-                          });
-                          _loadSong(currentIndex);
-                        }
-                      : null,
-                ),
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        Icons.fast_forward_rounded,
+                        size: 70,
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                      ),
+                      onPressed: currentIndex < song.length - 1
+                          ? () {
+                              setState(() {
+                                currentIndex++; // Increment the current index
+                              });
+                              _loadSong(currentIndex!);
+                            }
+                          : null,
+                    ),
+                  ],
+                )
               ],
-            )
-          ],
-        )),
+            )),
       ),
     );
   }
