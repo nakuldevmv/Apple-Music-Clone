@@ -242,7 +242,7 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
           Container(
-            height: 566.952,
+            height: 566.952 - 85, //may need to adjust acordingly
             child: GridView.builder(
               itemCount: BrowseCat.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
