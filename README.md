@@ -1,6 +1,6 @@
 # Apple Music Clone Using Flutter
 
-Creating an Apple Music Clone with Flutter showcases building a music player interface and functionality from scratch, focusing on managing and playing local audio files. This project doesn't rely on external APIs but uses local sample audio to demonstrate navigation through a music library, playback control (play, pause, skip, shuffle), and the overall architecture of a music streaming application.
+Creating an Apple Music Clone with Flutter showcases building a music player interface and functionality from scratch, focusing on managing and playing local audio files. This project doesn't rely on external APIs but uses local sample audio to demonstrate navigation through a music library, playback control (play, pause, skip), and the overall architecture of a music streaming application.
 
 ## Ideal For
 
