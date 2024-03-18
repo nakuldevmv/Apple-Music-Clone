@@ -23,10 +23,12 @@ Creating an Apple Music Clone with Flutter showcases building a music player int
 1. **Open Terminal or Command Prompt.**
 2. **Navigate to the directory where you want to clone the project.**
 3. **Clone the Repository:**
+   
    ```
    git clone https://github.com/nakuldevmv/Apple-Music-Clone.git
    ```
-4. **Navigate to the Project Directory:**
+5. **Navigate to the Project Directory:**
+   
    ```
    cd Apple-Music-Clone
    ```
@@ -45,6 +47,7 @@ Creating an Apple Music Clone with Flutter showcases building a music player int
 
 1. **Start an Emulator or Connect a Device:** Make sure you have an Android emulator running or a physical device connected to your computer.
 2. **Run the Project:** You can start the project by clicking on the "Run" option in VSCode and then "Start Debugging", or you can simply press F5. Alternatively, in the terminal, execute:
+   
    ```
    flutter run
    ```
