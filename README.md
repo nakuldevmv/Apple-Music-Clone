@@ -19,11 +19,12 @@ Creating an Apple Music Clone with Flutter showcases building a music player int
 
  ## Showcase
 ### Screenshots:
-
 ![1](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/bdd1f0e6-d383-476e-ae27-0b0283e8c1e0)
 ![2](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/88f8029f-6b95-4baf-9b93-88d5971a5847)
 
+### Video Demo
 
+[Youtube Link](https://youtu.be/VIv1jIYpzaM?si=SVVwqdpvSL_x_my8)
 
 ## Getting Started
 
