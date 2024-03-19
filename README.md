@@ -1,4 +1,4 @@
-![LinkdIn Article Cover](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/ef20722d-55b1-4977-8020-01fe931c757f)
+![1](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/76b2ec1c-98d7-4ab5-83fd-bb03f1aaafad)![LinkdIn Article Cover](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/ef20722d-55b1-4977-8020-01fe931c757f)
 # Apple Music Clone Using Flutter
 
 Creating an Apple Music Clone with Flutter showcases building a music player interface and functionality from scratch, focusing on managing and playing local audio files. This project doesn't rely on external APIs but uses local sample audio to demonstrate navigation through a music library, playback control (play, pause, skip), and the overall architecture of a music streaming application.
@@ -19,14 +19,8 @@ Creating an Apple Music Clone with Flutter showcases building a music player int
 
  ## Showcase
 ### Screenshots:
-![Screenshot_1710778735](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/426ffc5d-2f27-4df7-ab42-a996ed42b852)
-![Screenshot_1710778740](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/4a91296f-de37-4956-8a04-9a64979e41ee)
-![Screenshot_1710778744](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/19688e93-e737-4b74-97ea-e3ac43984663)
-![Screenshot_1710778747](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/9ad8e020-6605-4a11-b03d-2967aff2069d)
-![Screenshot_1710778923](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/e246830d-16f2-4f08-94f2-e8c341e355fe)
-![Screenshot_1710778805](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/577b1d91-a77b-4d29-a3dd-99ba54c34e91)
-![Screenshot_1710778838](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/131c4ca0-c2c6-491c-9d0a-1cea2b08db62)
-![Screenshot_1710778856](https://github.com/nakuldevmv/Apple-Music-Clone/assets/49229179/3b3a15cf-d78d-4d12-929a-9be48d929bc8)
+
+
 
 
 
