@@ -17,7 +17,7 @@ class WebView extends StatelessWidget {
     super.key,
     this.child,
     this.innerContainerHeight = 866,
-    this.innerContainerWidth = 411,
+    this.innerContainerWidth = 400,
     this.shadowColor = Colors.black54,
     this.shadowBlurRadius = 10.0,
     this.shadowSpreadRadius = 2.0,
