@@ -1,8 +1,8 @@
-import 'package:audioplayers/audioplayers.dart';
+// import 'package:audioplayers/audioplayers.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+import 'package:just_audio/just_audio.dart';
+
 import 'package:palette_generator/palette_generator.dart';
 
 class MusicPlayer extends StatefulWidget {
@@ -446,97 +446,100 @@ class _MusicPlayerState extends State<MusicPlayer> {
   ];
 
   //variable for music audioPlayer
-  final AudioPlayer audioPlayer = AudioPlayer();
-  PaletteGenerator? paletteGenerator;
-  List<Color> colors = [
-    Colors.white,
-    Colors.black
-  ];
+  late final AudioPlayer audioPlayer;
   bool isPlaying = false;
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
   int currentIndex = 0;
+  bool isLoading = false;
 
-  //implement init state
   @override
   void initState() {
     super.initState();
+    // Initialize audio player
+    audioPlayer = AudioPlayer();
+    setupAudioPlayer();
     _updatePaletteGenerator(currentIndex);
     changeImage(currentIndex);
 
-    // List<Color> color1 = [];
-    // List<Color> color2 = [];
-    audioPlayer.onPlayerStateChanged.listen((state) {
-      if (state == PlayerState.completed) {
-        // Handle completion
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final routes = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+      if (routes != null && routes.containsKey('index')) {
+        setState(() {
+          currentIndex = routes['index'] as int;
+        });
+        _loadSong(currentIndex);
+      } else {
+        // Load the first song by default
+        _loadSong(currentIndex);
       }
+    });
+  }
+
+  void setupAudioPlayer() {
+    // Listen to player state changes
+    audioPlayer.playerStateStream.listen((PlayerState state) {
       setState(() {
-        isPlaying = state == PlayerState.playing;
+        isPlaying = state.playing;
       });
     });
 
-    audioPlayer.onDurationChanged.listen((newDuration) {
+    // Listen to duration changes
+    audioPlayer.durationStream.listen((newDuration) {
       setState(() {
-        duration = newDuration;
+        duration = newDuration ?? Duration.zero;
       });
     });
 
-    audioPlayer.onPositionChanged.listen((newPosition) {
+    // Listen to position changes
+    audioPlayer.positionStream.listen((newPosition) {
       setState(() {
         position = newPosition;
       });
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final routes = ModalRoute.of(context)?.settings.arguments as Map<String, int>;
-      if (routes.containsKey('index')) {
+    // Listen to sequence state for completion
+    audioPlayer.processingStateStream.listen((state) {
+      if (state == ProcessingState.completed) {
         setState(() {
-          currentIndex = routes['index']!;
+          position = Duration.zero;
+          isPlaying = false;
         });
-        _loadSong(currentIndex); // Load the song based on the index
+        // Automatically play next song
+        if (currentIndex < song.length - 1) {
+          currentIndex++;
+          _loadSong(currentIndex);
+        }
       }
     });
   }
 
-  // @override
-  // void dispose() {
-  //   audioPlayer.dispose();
-  //   super.dispose();
-  // }
-  void changeImage(int newIndex) async {
-    // Update the current index to the new index
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
+  }
+
+  Future<void> _loadSong(int index) async {
     setState(() {
-      currentIndex = newIndex;
+      isLoading = true;
+      currentIndex = index;
     });
 
-    // Call _updatePaletteGenerator to update the colors based on the new image
-    await _updatePaletteGenerator(currentIndex);
-  }
-
-  Future<void> _updatePaletteGenerator(int index) async {
-    final String imageUrl = song[index]['image']!;
-    paletteGenerator = await PaletteGenerator.fromImageProvider(
-      NetworkImage(imageUrl),
-      size: const Size(200, 200),
-    );
-    if (paletteGenerator != null && paletteGenerator!.colors.isNotEmpty) {
-      Color color1 = paletteGenerator!.dominantColor?.color ?? colors[0];
-      Color color2 = paletteGenerator!.mutedColor?.color ?? colors[1];
-      setState(() {
-        colors = [
-          color1,
-          color2
-        ];
-      });
-    }
-  }
-
-  void _loadSong(int index) async {
-    await audioPlayer.setSourceUrl(song[index]['source']);
-    // Additional code to play the song right after loading if needed
-    if (!isPlaying) {
-      audioPlayer.play(UrlSource(song[index]['source']));
+    try {
+      await audioPlayer.stop();
+      await audioPlayer.setUrl(song[index]['source']);
+      await audioPlayer.play();
       await _updatePaletteGenerator(index);
+    } catch (e) {
+      print('Error loading song: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error playing song: ${e.toString()}')),
+      );
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
@@ -544,6 +547,41 @@ class _MusicPlayerState extends State<MusicPlayer> {
     final minutes = duration.inMinutes.remainder(60);
     final seconds = duration.inSeconds.remainder(60);
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+  }
+
+////////////
+  PaletteGenerator? paletteGenerator;
+  List<Color> colors = [
+    Colors.white,
+    Colors.black
+  ];
+
+  Future<void> _updatePaletteGenerator(int index) async {
+    try {
+      final imageUrl = song[index]['image'];
+      paletteGenerator = await PaletteGenerator.fromImageProvider(
+        NetworkImage(imageUrl),
+        size: const Size(200, 200),
+      );
+
+      if (paletteGenerator != null && paletteGenerator!.colors.isNotEmpty) {
+        setState(() {
+          colors = [
+            paletteGenerator!.dominantColor?.color ?? colors[0],
+            paletteGenerator!.mutedColor?.color ?? colors[1],
+          ];
+        });
+      }
+    } catch (e) {
+      print('Error generating palette: $e');
+    }
+  }
+
+  void changeImage(int newIndex) async {
+    setState(() {
+      currentIndex = newIndex;
+    });
+    await _updatePaletteGenerator(currentIndex);
   }
 
   @override
@@ -668,7 +706,6 @@ class _MusicPlayerState extends State<MusicPlayer> {
                   height: 20,
                 ),
                 SizedBox(
-                  // color: Colors.amber,
                   height: 20,
                   child: SliderTheme(
                     data: SliderTheme.of(context).copyWith(
@@ -699,24 +736,19 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       min: 0,
                       max: duration.inSeconds.toDouble(),
                       value: position.inSeconds.clamp(0, duration.inSeconds).toDouble(),
-                      onChanged: (value) {
+                      onChanged: (value) async {
                         final newPosition = Duration(seconds: value.toInt());
-                        audioPlayer.seek(newPosition);
+                        await audioPlayer.seek(newPosition);
                       },
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Container(
                   padding: const EdgeInsets.only(left: 22, right: 22),
-                  // color: Colors.indigo,
-                  // width: 340,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Padding(padding: EdgeInsets.only(left: 10, right: 10)),
                       Text(
                         formatTime(position),
                         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
@@ -725,9 +757,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
+                const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -740,7 +770,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       onPressed: currentIndex > 0
                           ? () {
                               setState(() {
-                                currentIndex--; // Decrement the current index
+                                currentIndex--;
                               });
                               _loadSong(currentIndex);
                             }
@@ -756,7 +786,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         if (isPlaying) {
                           audioPlayer.pause();
                         } else {
-                          audioPlayer.play(UrlSource(song[currentIndex ?? 0]['source']));
+                          audioPlayer.play();
                         }
                       },
                     ),
@@ -769,14 +799,14 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       onPressed: currentIndex < song.length - 1
                           ? () {
                               setState(() {
-                                currentIndex++; // Increment the current index
+                                currentIndex++;
                               });
                               _loadSong(currentIndex);
                             }
                           : null,
                     ),
                   ],
-                )
+                ),
               ],
             )),
       ),
