@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -597,8 +598,10 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: Image.network(
-                      song[currentIndex ?? 0]['image'],
+                    child: CachedNetworkImage(
+                      placeholder: (context, url) => const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => const Icon(Icons.error),
+                      imageUrl: song[currentIndex ?? 0]['image'],
                       height: 350,
                       width: 350,
                       fit: BoxFit.cover,

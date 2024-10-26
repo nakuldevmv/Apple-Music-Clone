@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -256,8 +257,10 @@ class _AlbumPageState extends State<AlbumPage> {
                 children: [
                   ClipPath(
                       clipper: ShapeBorderClipper(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                      child: Image.network(
-                        TopPicks[currentIndex]['image'],
+                      child: CachedNetworkImage(
+                        placeholder: (context, url) => const CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => const Icon(Icons.error),
+                        imageUrl: TopPicks[currentIndex]['image'],
                         height: 300,
                         width: 300,
                       )),

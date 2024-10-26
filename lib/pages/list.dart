@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ListTest extends StatefulWidget {
@@ -147,8 +148,8 @@ class _ListTestState extends State<ListTest> {
         itemBuilder: (context, index) {
           return Column(
             children: [
-              Image.network(TopPicks[currentIndex][0]['artist_img']),
-              Image.network(TopPicks[currentIndex][index]['image'])
+              CachedNetworkImage(placeholder: (context, url) => const CircularProgressIndicator(), errorWidget: (context, url, error) => const Icon(Icons.error), imageUrl: TopPicks[currentIndex][0]['artist_img']),
+              CachedNetworkImage(placeholder: (context, url) => const CircularProgressIndicator(), errorWidget: (context, url, error) => const Icon(Icons.error), imageUrl: TopPicks[currentIndex][index]['image']),
             ],
           );
         },

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -677,8 +678,10 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
                               ),
                             ),
-                            child: Image.network(
-                              TopPicks[index]['image'],
+                            child: CachedNetworkImage(
+                              placeholder: (context, url) => const CircularProgressIndicator(),
+                              errorWidget: (context, url, error) => const Icon(Icons.error),
+                              imageUrl: TopPicks[index]['image'],
                               height: 250,
                               width: 250,
                               fit: BoxFit.cover,
@@ -785,8 +788,10 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            child: Image.network(
-                              song[index]['image'],
+                            child: CachedNetworkImage(
+                              placeholder: (context, url) => const CircularProgressIndicator(),
+                              errorWidget: (context, url, error) => const Icon(Icons.error),
+                              imageUrl: song[index]['image'],
                               height: 170,
                               width: 170,
                               fit: BoxFit.cover,
@@ -868,8 +873,10 @@ class _HomePageState extends State<HomePage> {
                                     borderRadius: BorderRadius.circular(200),
                                   ),
                                 ),
-                                child: Image.network(
-                                  Artist[index][index]['artist_img'],
+                                child: CachedNetworkImage(
+                                  placeholder: (context, url) => const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                  imageUrl: Artist[index][index]['artist_img'],
                                   height: 150,
                                   width: 150,
                                   fit: BoxFit.cover,

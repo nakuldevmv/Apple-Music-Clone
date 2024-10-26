@@ -1,8 +1,9 @@
 import 'dart:math';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:icons_flutter/icons_flutter.dart';
+// import 'package:icons_flutter/icons_flutter.dart';
 
 class LibraryPage extends StatefulWidget {
   const LibraryPage({super.key});
@@ -653,8 +654,10 @@ class _LibraryPageState extends State<LibraryPage> {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
-                                  child: Image.network(
-                                    song[randomIndex]['image'],
+                                  child: CachedNetworkImage(
+                                    placeholder: (context, url) => const CircularProgressIndicator(),
+                                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                                    imageUrl: song[randomIndex]['image'],
                                     height: 170,
                                     width: 170,
                                     fit: BoxFit.cover,

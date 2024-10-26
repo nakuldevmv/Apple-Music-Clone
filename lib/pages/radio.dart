@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class RadioPage extends StatefulWidget {
@@ -576,8 +577,10 @@ class _RadioPageState extends State<RadioPage> {
                                     borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
                                   ),
                                 ),
-                                child: Image.network(
-                                  radio[0]['image'],
+                                child: CachedNetworkImage(
+                                  placeholder: (context, url) => const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                  imageUrl: radio[0]['image'],
                                   height: 280,
                                   width: 380,
                                   fit: BoxFit.cover,
@@ -717,8 +720,10 @@ class _RadioPageState extends State<RadioPage> {
                                     borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
                                   ),
                                 ),
-                                child: Image.network(
-                                  radio[1]['image'],
+                                child: CachedNetworkImage(
+                                  placeholder: (context, url) => const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                  imageUrl: radio[1]['image'],
                                   height: 280,
                                   width: 380,
                                   fit: BoxFit.cover,
@@ -858,8 +863,10 @@ class _RadioPageState extends State<RadioPage> {
                                     borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
                                   ),
                                 ),
-                                child: Image.network(
-                                  radio[2]['image'],
+                                child: CachedNetworkImage(
+                                  placeholder: (context, url) => const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                  imageUrl: radio[2]['image'],
                                   height: 280,
                                   width: 380,
                                   fit: BoxFit.cover,
@@ -987,8 +994,10 @@ class _RadioPageState extends State<RadioPage> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: Image.network(
-                            song[index]['image'],
+                          child: CachedNetworkImage(
+                            placeholder: (context, url) => const CircularProgressIndicator(),
+                            errorWidget: (context, url, error) => const Icon(Icons.error),
+                            imageUrl: song[index]['image'],
                             height: 170,
                             width: 170,
                             fit: BoxFit.cover,

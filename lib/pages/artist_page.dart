@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -174,8 +175,10 @@ class _ArtistPageState extends State<ArtistPage> {
                       child: Stack(
                         alignment: Alignment.bottomCenter,
                         children: [
-                          Image.network(
-                            TopPicks[currentIndex][0]['artist_img'],
+                          CachedNetworkImage(
+                            placeholder: (context, url) => const CircularProgressIndicator(),
+                            errorWidget: (context, url, error) => const Icon(Icons.error),
+                            imageUrl: TopPicks[currentIndex][0]['artist_img'],
                             height: 390,
                             width: 500,
                             fit: BoxFit.cover,
@@ -283,8 +286,10 @@ class _ArtistPageState extends State<ArtistPage> {
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
                             ),
-                            child: Image.network(
-                              TopPicks[currentIndex][0]['image'],
+                            child: CachedNetworkImage(
+                              placeholder: (context, url) => const CircularProgressIndicator(),
+                              errorWidget: (context, url, error) => const Icon(Icons.error),
+                              imageUrl: TopPicks[currentIndex][0]['image'],
                               height: 120,
                               fit: BoxFit.cover,
                             )),
@@ -372,8 +377,10 @@ class _ArtistPageState extends State<ArtistPage> {
                                               borderRadius: BorderRadius.circular(8.0),
                                             ),
                                           ),
-                                          child: Image.network(
-                                            TopPicks[currentIndex][index]['image'],
+                                          child: CachedNetworkImage(
+                                            placeholder: (context, url) => const CircularProgressIndicator(),
+                                            errorWidget: (context, url, error) => const Icon(Icons.error),
+                                            imageUrl: TopPicks[currentIndex][index]['image'],
                                             height: 50,
                                             width: 50,
                                             fit: BoxFit.cover,

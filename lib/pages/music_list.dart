@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:musicplayer/audioManager.dart';
@@ -486,8 +487,10 @@ class _MusicListState extends State<MusicList> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: Image.network(
-                      song[index]['image'],
+                    child: CachedNetworkImage(
+                      placeholder: (context, url) => const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => const Icon(Icons.error),
+                      imageUrl: song[index]['image'],
                       height: 180,
                       width: 180,
                       fit: BoxFit.cover,

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -234,8 +235,10 @@ class _SearchPageState extends State<SearchPage> {
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                           ),
-                          child: Image.network(
-                            BrowseCat[index]['image'],
+                          child: CachedNetworkImage(
+                            placeholder: (context, url) => const CircularProgressIndicator(),
+                            errorWidget: (context, url, error) => const Icon(Icons.error),
+                            imageUrl: BrowseCat[index]['image'],
                             height: 130,
                             width: 190,
                             fit: BoxFit.cover,
