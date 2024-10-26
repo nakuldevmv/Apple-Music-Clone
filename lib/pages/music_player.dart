@@ -19,15 +19,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
-      "image":
-          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/love-song-mixtape-album-cover-template-design-250a66b33422287542e2690b437f881b_screen.jpg?ts=1635176340",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
+      "image": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/love-song-mixtape-album-cover-template-design-250a66b33422287542e2690b437f881b_screen.jpg?ts=1635176340",
       "trackNumber": 1,
       "totalTrackCount": 13,
       "duration": 90,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_02",
@@ -35,15 +32,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 2,
       "totalTrackCount": 13,
       "duration": 267,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_03",
@@ -51,15 +45,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/03_-_Voyage_I_-_Waterfall.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/03_-_Voyage_I_-_Waterfall.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 3,
       "totalTrackCount": 13,
       "duration": 264,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_04",
@@ -67,15 +58,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/04_-_The_Music_In_You.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/04_-_The_Music_In_You.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 4,
       "totalTrackCount": 13,
       "duration": 223,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_05",
@@ -83,15 +71,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/05_-_The_Calm_Before_The_Storm.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/05_-_The_Calm_Before_The_Storm.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 5,
       "totalTrackCount": 13,
       "duration": 229,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_06",
@@ -99,15 +84,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/06_-_No_Pain_No_Gain.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/06_-_No_Pain_No_Gain.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 6,
       "totalTrackCount": 13,
       "duration": 304,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_07",
@@ -115,15 +97,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/07_-_Voyage_II_-_Satori.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/07_-_Voyage_II_-_Satori.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 7,
       "totalTrackCount": 13,
       "duration": 256,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_08",
@@ -131,15 +110,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/08_-_Reveal_the_Magic.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/08_-_Reveal_the_Magic.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 8,
       "totalTrackCount": 13,
       "duration": 293,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_09",
@@ -147,15 +123,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/09_-_Hachiko_The_Faithtful_Dog.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/09_-_Hachiko_The_Faithtful_Dog.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 9,
       "totalTrackCount": 13,
       "duration": 185,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_10",
@@ -163,15 +136,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/10_-_Wake_Up.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/10_-_Wake_Up.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 10,
       "totalTrackCount": 13,
       "duration": 251,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_11",
@@ -179,15 +149,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/11_-_Voyage_III_-_The_Space_Between_Us.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/11_-_Voyage_III_-_The_Space_Between_Us.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 11,
       "totalTrackCount": 13,
       "duration": 290,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_12",
@@ -195,15 +162,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/12_-_Ume_No_Kaori_feat_Sunawai.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/12_-_Ume_No_Kaori_feat_Sunawai.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 12,
       "totalTrackCount": 13,
       "duration": 334,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "wake_up_13",
@@ -211,15 +175,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Wake Up",
       "artist": "The Kyoto Connection",
       "genre": "Electronic",
-      "source":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/13_-_Outro_-_Totally_Here_and_Now_feat_Alan_Watts.mp3",
-      "image":
-          "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+      "source": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/13_-_Outro_-_Totally_Here_and_Now_feat_Alan_Watts.mp3",
+      "image": "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
       "trackNumber": 13,
       "totalTrackCount": 13,
       "duration": 242,
-      "site":
-          "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+      "site": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
     },
     {
       "id": "jazz_in_paris",
@@ -227,8 +188,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Jazz & Blues",
       "artist": "Media Right Productions",
       "genre": "Jazz & Blues",
-      "source":
-          "https://storage.googleapis.com/automotive-media/Jazz_In_Paris.mp3",
+      "source": "https://storage.googleapis.com/automotive-media/Jazz_In_Paris.mp3",
       "image": "https://storage.googleapis.com/automotive-media/album_art.jpg",
       "trackNumber": 1,
       "totalTrackCount": 6,
@@ -241,8 +201,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Jazz & Blues",
       "artist": "Silent Partner",
       "genre": "Jazz & Blues",
-      "source":
-          "https://storage.googleapis.com/automotive-media/The_Messenger.mp3",
+      "source": "https://storage.googleapis.com/automotive-media/The_Messenger.mp3",
       "image": "https://storage.googleapis.com/automotive-media/album_art.jpg",
       "trackNumber": 2,
       "totalTrackCount": 6,
@@ -268,8 +227,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Cinematic",
       "artist": "Jingle Punks",
       "genre": "Cinematic",
-      "source":
-          "https://storage.googleapis.com/automotive-media/On_the_Bach.mp3",
+      "source": "https://storage.googleapis.com/automotive-media/On_the_Bach.mp3",
       "image": "https://storage.googleapis.com/automotive-media/album_art.jpg",
       "trackNumber": 4,
       "totalTrackCount": 6,
@@ -282,8 +240,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Cinematic",
       "artist": "Jingle Punks",
       "genre": "Cinematic",
-      "source":
-          "https://storage.googleapis.com/automotive-media/The_Story_Unfolds.mp3",
+      "source": "https://storage.googleapis.com/automotive-media/The_Story_Unfolds.mp3",
       "image": "https://storage.googleapis.com/automotive-media/album_art.jpg",
       "trackNumber": 5,
       "totalTrackCount": 6,
@@ -296,10 +253,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Youtube Audio Library Rock",
       "artist": "Silent Partner",
       "genre": "Rock",
-      "source":
-          "https://storage.googleapis.com/automotive-media/Drop_and_Roll.mp3",
-      "image":
-          "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
+      "source": "https://storage.googleapis.com/automotive-media/Drop_and_Roll.mp3",
+      "image": "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
       "trackNumber": 1,
       "totalTrackCount": 7,
       "duration": 121,
@@ -312,8 +267,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "artist": "Topher Mohr and Alex Elena",
       "genre": "Rock",
       "source": "https://storage.googleapis.com/automotive-media/Motocross.mp3",
-      "image":
-          "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
+      "image": "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
       "trackNumber": 2,
       "totalTrackCount": 7,
       "duration": 182,
@@ -325,10 +279,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Youtube Audio Library Rock",
       "artist": "The 126ers",
       "genre": "Rock",
-      "source":
-          "https://storage.googleapis.com/automotive-media/Wish_You_d_Come_True.mp3",
-      "image":
-          "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
+      "source": "https://storage.googleapis.com/automotive-media/Wish_You_d_Come_True.mp3",
+      "image": "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
       "trackNumber": 3,
       "totalTrackCount": 7,
       "duration": 169,
@@ -341,8 +293,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "artist": "Silent Partner",
       "genre": "Rock",
       "source": "https://storage.googleapis.com/automotive-media/Awakening.mp3",
-      "image":
-          "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
+      "image": "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
       "trackNumber": 4,
       "totalTrackCount": 7,
       "duration": 220,
@@ -355,8 +306,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "artist": "Letter Box",
       "genre": "Rock",
       "source": "https://storage.googleapis.com/automotive-media/Home.mp3",
-      "image":
-          "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
+      "image": "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
       "trackNumber": 5,
       "totalTrackCount": 7,
       "duration": 213,
@@ -368,10 +318,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Youtube Audio Library Rock",
       "artist": "Letter Box",
       "genre": "Rock",
-      "source":
-          "https://storage.googleapis.com/automotive-media/Tell_The_Angels.mp3",
-      "image":
-          "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
+      "source": "https://storage.googleapis.com/automotive-media/Tell_The_Angels.mp3",
+      "image": "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
       "trackNumber": 6,
       "totalTrackCount": 7,
       "duration": 208,
@@ -383,10 +331,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Youtube Audio Library Rock",
       "artist": "Letter Box",
       "genre": "Rock",
-      "source":
-          "https://storage.googleapis.com/automotive-media/Hey_Sailor.mp3",
-      "image":
-          "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
+      "source": "https://storage.googleapis.com/automotive-media/Hey_Sailor.mp3",
+      "image": "https://storage.googleapis.com/automotive-media/album_art_2.jpg",
       "trackNumber": 7,
       "totalTrackCount": 7,
       "duration": 193,
@@ -398,10 +344,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Youtube Audio Library Rock 2",
       "artist": "The 126ers",
       "genre": "Rock",
-      "source":
-          "https://storage.googleapis.com/automotive-media/Keys_To_The_Kingdom.mp3",
-      "image":
-          "https://storage.googleapis.com/automotive-media/album_art_3.jpg",
+      "source": "https://storage.googleapis.com/automotive-media/Keys_To_The_Kingdom.mp3",
+      "image": "https://storage.googleapis.com/automotive-media/album_art_3.jpg",
       "trackNumber": 1,
       "totalTrackCount": 2,
       "duration": 221,
@@ -413,10 +357,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Youtube Audio Library Rock 2",
       "artist": "The 126ers",
       "genre": "Rock",
-      "source":
-          "https://storage.googleapis.com/automotive-media/The_Coldest_Shoulder.mp3",
-      "image":
-          "https://storage.googleapis.com/automotive-media/album_art_3.jpg",
+      "source": "https://storage.googleapis.com/automotive-media/The_Coldest_Shoulder.mp3",
+      "image": "https://storage.googleapis.com/automotive-media/album_art_3.jpg",
       "trackNumber": 2,
       "totalTrackCount": 2,
       "duration": 160,
@@ -428,10 +370,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Spatial Audio",
       "artist": "Watson Wu",
       "genre": "People",
-      "source":
-          "https://storage.googleapis.com/uamp/Spatial Audio/Marching band.wav",
-      "image":
-          "https://storage.googleapis.com/uamp/Spatial Audio/Marching band.jpg",
+      "source": "https://storage.googleapis.com/uamp/Spatial Audio/Marching band.wav",
+      "image": "https://storage.googleapis.com/uamp/Spatial Audio/Marching band.jpg",
       "trackNumber": 1,
       "totalTrackCount": 6,
       "duration": 56,
@@ -443,8 +383,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Spatial Audio",
       "artist": "Watson Wu",
       "genre": "Animals",
-      "source":
-          "https://storage.googleapis.com/uamp/Spatial Audio/Chickens.wav",
+      "source": "https://storage.googleapis.com/uamp/Spatial Audio/Chickens.wav",
       "image": "https://storage.googleapis.com/uamp/Spatial Audio/Chickens.jpg",
       "trackNumber": 2,
       "totalTrackCount": 6,
@@ -457,10 +396,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Spatial Audio",
       "artist": "Stephan Schutze",
       "genre": "Ambience",
-      "source":
-          "https://storage.googleapis.com/uamp/Spatial Audio/Rural market.wav",
-      "image":
-          "https://storage.googleapis.com/uamp/Spatial Audio/Rural market.jpg",
+      "source": "https://storage.googleapis.com/uamp/Spatial Audio/Rural market.wav",
+      "image": "https://storage.googleapis.com/uamp/Spatial Audio/Rural market.jpg",
       "trackNumber": 3,
       "totalTrackCount": 6,
       "duration": 299,
@@ -472,10 +409,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Spatial Audio",
       "artist": "Stephan Schutze",
       "genre": "Ambience",
-      "source":
-          "https://storage.googleapis.com/uamp/Spatial Audio/Steamtrain.wav",
-      "image":
-          "https://storage.googleapis.com/uamp/Spatial Audio/Steamtrain.jpg",
+      "source": "https://storage.googleapis.com/uamp/Spatial Audio/Steamtrain.wav",
+      "image": "https://storage.googleapis.com/uamp/Spatial Audio/Steamtrain.jpg",
       "trackNumber": 4,
       "totalTrackCount": 6,
       "duration": 296,
@@ -487,10 +422,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "album": "Spatial Audio",
       "artist": "Stephan Schutze",
       "genre": "Ambience",
-      "source":
-          "https://storage.googleapis.com/uamp/Spatial Audio/Car pass.wav",
-      "image":
-          "https://i.pinimg.com/474x/63/d8/c2/63d8c24d77ea080d1a8dcb1cca2a683e.jpg",
+      "source": "https://storage.googleapis.com/uamp/Spatial Audio/Car pass.wav",
+      "image": "https://i.pinimg.com/474x/63/d8/c2/63d8c24d77ea080d1a8dcb1cca2a683e.jpg",
       "trackNumber": 5,
       "totalTrackCount": 6,
       "duration": 302,
@@ -503,8 +436,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
       "artist": "Watson Wu",
       "genre": "Ambience",
       "source": "https://storage.googleapis.com/uamp/Spatial Audio/Shore.wav",
-      "image":
-          "https://i.pinimg.com/474x/aa/ec/28/aaec2887892340a23889a4e98d44afcb.jpg",
+      "image": "https://i.pinimg.com/474x/aa/ec/28/aaec2887892340a23889a4e98d44afcb.jpg",
       "trackNumber": 6,
       "totalTrackCount": 6,
       "duration": 180,
@@ -515,7 +447,10 @@ class _MusicPlayerState extends State<MusicPlayer> {
   //variable for music audioPlayer
   final AudioPlayer audioPlayer = AudioPlayer();
   PaletteGenerator? paletteGenerator;
-  List<Color> colors = [Colors.white, Colors.black];
+  List<Color> colors = [
+    Colors.white,
+    Colors.black
+  ];
   bool isPlaying = false;
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
@@ -552,13 +487,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final routes =
-          ModalRoute.of(context)?.settings.arguments as Map<String, int>;
-      if (routes != null && routes.containsKey('index')) {
+      final routes = ModalRoute.of(context)?.settings.arguments as Map<String, int>;
+      if (routes.containsKey('index')) {
         setState(() {
           currentIndex = routes['index']!;
         });
-        _loadSong(currentIndex!); // Load the song based on the index
+        _loadSong(currentIndex); // Load the song based on the index
       }
     });
   }
@@ -579,17 +513,19 @@ class _MusicPlayerState extends State<MusicPlayer> {
   }
 
   Future<void> _updatePaletteGenerator(int index) async {
-    if (index == null) return; // Ensure we have a current index
-    final String imageUrl = song[index!]['image']!;
+    final String imageUrl = song[index]['image']!;
     paletteGenerator = await PaletteGenerator.fromImageProvider(
       NetworkImage(imageUrl),
-      size: Size(200, 200),
+      size: const Size(200, 200),
     );
     if (paletteGenerator != null && paletteGenerator!.colors.isNotEmpty) {
       Color color1 = paletteGenerator!.dominantColor?.color ?? colors[0];
       Color color2 = paletteGenerator!.mutedColor?.color ?? colors[1];
       setState(() {
-        colors = [color1, color2];
+        colors = [
+          color1,
+          color2
+        ];
       });
     }
   }
@@ -619,7 +555,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
           onVerticalDragDown: (details) {
             Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.horizontal_rule_rounded,
             size: 70,
             color: Colors.white,
@@ -640,12 +576,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 DecoratedBox(
                   decoration: BoxDecoration(
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Color.fromARGB(97, 0, 0, 0),
                         blurRadius: 10.0,
@@ -669,16 +605,16 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Container(
                   // color: Color.fromARGB(255, 13, 0, 132),
-                  padding: EdgeInsets.only(left: 25),
+                  padding: const EdgeInsets.only(left: 25),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
+                      SizedBox(
                         // color: Colors.blue,
                         width: 270,
                         child: Column(
@@ -686,12 +622,9 @@ class _MusicPlayerState extends State<MusicPlayer> {
                           children: [
                             Text(
                               song[currentIndex ?? 0]['title'],
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  overflow: TextOverflow.ellipsis),
+                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18, overflow: TextOverflow.ellipsis),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 3,
                             ),
                             Text(song[currentIndex ?? 0]['artist']),
@@ -700,25 +633,23 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       ),
                       Container(
                         // color: Colors.amber,
-                        margin: EdgeInsets.only(right: 22),
+                        margin: const EdgeInsets.only(right: 22),
                         child: Row(
                           children: [
                             // Padding(padding: EdgeInsets.only(right: 10)),
-                            Icon(
+                            const Icon(
                               Icons.stars,
                               size: 33,
                               color: Color.fromARGB(223, 228, 228, 228),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             Container(
                               // ignore: prefer_const_constructors
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color.fromARGB(158, 136, 136, 136)),
+                              decoration: BoxDecoration(shape: BoxShape.circle, color: const Color.fromARGB(158, 136, 136, 136)),
                               // color: Colors.black12,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.more_horiz_rounded,
                                 size: 29,
                                 color: Color.fromARGB(255, 255, 255, 255),
@@ -730,20 +661,19 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Container(
+                SizedBox(
                   // color: Colors.amber,
                   height: 20,
                   child: SliderTheme(
                     data: SliderTheme.of(context).copyWith(
                       trackHeight: 5.0,
-                      trackShape: RoundedRectSliderTrackShape(),
-                      activeTrackColor:
-                          const Color.fromARGB(255, 233, 233, 233),
+                      trackShape: const RoundedRectSliderTrackShape(),
+                      activeTrackColor: const Color.fromARGB(255, 233, 233, 233),
                       inactiveTrackColor: const Color.fromARGB(255, 80, 80, 80),
-                      thumbShape: RoundSliderThumbShape(
+                      thumbShape: const RoundSliderThumbShape(
                         elevation: 0,
                         pressedElevation: 0,
                       ),
@@ -765,9 +695,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     child: Slider(
                       min: 0,
                       max: duration.inSeconds.toDouble(),
-                      value: position.inSeconds
-                          .clamp(0, duration.inSeconds)
-                          .toDouble(),
+                      value: position.inSeconds.clamp(0, duration.inSeconds).toDouble(),
                       onChanged: (value) {
                         final newPosition = Duration(seconds: value.toInt());
                         audioPlayer.seek(newPosition);
@@ -775,11 +703,11 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 22, right: 22),
+                  padding: const EdgeInsets.only(left: 22, right: 22),
                   // color: Colors.indigo,
                   // width: 340,
                   child: Row(
@@ -788,41 +716,36 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       // Padding(padding: EdgeInsets.only(left: 10, right: 10)),
                       Text(
                         formatTime(position),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                       ),
-                      Text(formatTime(duration - position),
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15))
+                      Text(formatTime(duration - position), style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.fast_rewind_rounded,
                         size: 70,
-                        color: const Color.fromARGB(255, 255, 255, 255),
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
                       onPressed: currentIndex > 0
                           ? () {
                               setState(() {
                                 currentIndex--; // Decrement the current index
                               });
-                              _loadSong(currentIndex!);
+                              _loadSong(currentIndex);
                             }
                           : null,
                     ),
                     IconButton(
                       icon: Icon(
-                        isPlaying
-                            ? Icons.pause_rounded
-                            : Icons.play_arrow_rounded,
+                        isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
                         size: 70,
                         color: const Color.fromARGB(255, 255, 255, 255),
                       ),
@@ -830,23 +753,22 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         if (isPlaying) {
                           audioPlayer.pause();
                         } else {
-                          audioPlayer.play(
-                              UrlSource(song[currentIndex ?? 0]['source']));
+                          audioPlayer.play(UrlSource(song[currentIndex ?? 0]['source']));
                         }
                       },
                     ),
                     IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.fast_forward_rounded,
                         size: 70,
-                        color: const Color.fromARGB(255, 255, 255, 255),
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
                       onPressed: currentIndex < song.length - 1
                           ? () {
                               setState(() {
                                 currentIndex++; // Increment the current index
                               });
-                              _loadSong(currentIndex!);
+                              _loadSong(currentIndex);
                             }
                           : null,
                     ),

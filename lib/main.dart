@@ -23,28 +23,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          colorScheme: ColorScheme.dark(),
-          scaffoldBackgroundColor: Color.fromARGB(255, 0, 0, 0),
-          appBarTheme: AppBarTheme(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              scrolledUnderElevation: 0)),
+      theme: ThemeData(colorScheme: const ColorScheme.dark(), scaffoldBackgroundColor: const Color.fromARGB(255, 0, 0, 0), appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent, elevation: 0, scrolledUnderElevation: 0)),
       debugShowCheckedModeBanner: false,
       initialRoute: '/firstpage',
       routes: {
-        '/list_test': (context) => ListTest(),
-        '/firstpage': (context) => FirstPage(),
-        '/browse': (context) => BrowsePage(),
-        '/radio': (context) => RadioPage(),
-        '/library': (context) => LibraryPage(),
-        '/search': (context) => SearchPage(),
-        '/home': (context) => HomePage(),
-        '/album': (context) => AlbumPage(),
-        '/artist': (context) => ArtistPage(),
-        '/artistlist': (context) => ArtistList(),
-        '/musiclist': (context) => MusicList(),
-        '/player': (context) => MusicPlayer()
+        '/list_test': (context) => const ListTest(),
+        '/firstpage': (context) => const FirstPage(),
+        '/browse': (context) => const BrowsePage(),
+        '/radio': (context) => const RadioPage(),
+        '/library': (context) => const LibraryPage(),
+        '/search': (context) => const SearchPage(),
+        '/home': (context) => const HomePage(),
+        '/album': (context) => const AlbumPage(),
+        '/artist': (context) => const ArtistPage(),
+        '/artistlist': (context) => const ArtistList(),
+        '/musiclist': (context) => const MusicList(),
+        '/player': (context) => const MusicPlayer()
       },
     );
   }
