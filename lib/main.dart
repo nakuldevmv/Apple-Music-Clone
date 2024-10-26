@@ -10,6 +10,7 @@ import 'package:musicplayer/pages/music_list.dart';
 import 'package:musicplayer/pages/music_player.dart';
 import 'package:musicplayer/pages/radio.dart';
 import 'package:musicplayer/pages/search_page.dart';
+import 'package:musicplayer/webView/webViewContainer.dart';
 
 import 'pages/library_page.dart';
 
@@ -27,18 +28,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/firstpage',
       routes: {
-        '/list_test': (context) => const ListTest(),
-        '/firstpage': (context) => const FirstPage(),
-        '/browse': (context) => const BrowsePage(),
-        '/radio': (context) => const RadioPage(),
-        '/library': (context) => const LibraryPage(),
-        '/search': (context) => const SearchPage(),
-        '/home': (context) => const HomePage(),
-        '/album': (context) => const AlbumPage(),
-        '/artist': (context) => const ArtistPage(),
-        '/artistlist': (context) => const ArtistList(),
-        '/musiclist': (context) => const MusicList(),
-        '/player': (context) => const MusicPlayer()
+        '/list_test': (context) => const WebView(child: ListTest()),
+        '/firstpage': (context) => const WebView(child: FirstPage()),
+        '/browse': (context) => const WebView(child: BrowsePage()),
+        '/radio': (context) => const WebView(child: RadioPage()),
+        '/library': (context) => const WebView(child: LibraryPage()),
+        '/search': (context) => const WebView(child: SearchPage()),
+        '/home': (context) => const WebView(child: HomePage()),
+        '/album': (context) => const WebView(child: AlbumPage()),
+        '/artist': (context) => const WebView(child: ArtistPage()),
+        '/artistlist': (context) => const WebView(child: ArtistList()),
+        '/musiclist': (context) => const WebView(child: MusicList()),
+        '/player': (context) => const WebView(child: MusicPlayer())
       },
     );
   }
