@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -27,10 +28,12 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>musicplayer</title>
   <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1A1B25">
+
 
   <script>
     // The value below is injected by flutter build, do not touch.
@@ -40,57 +43,78 @@
   <script src="flutter.js" defer></script>
   <style>
     body {
-         margin: 0;
-         min-height: 100%;
-         background-color: #181818;
-         background-size: 100% 100%;
-       }
-       .bottom-message {
-         font-size: 15px;
-         color: #fff;
-         position: absolute;
-         bottom: 20px;
-         width: 100%;
-         text-align: center;
-         font-style: normal;
-         font-family: 'Chakra Petch', sans-serif;
-       }
-   
-   </style>
-   <link
-       href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Handjet:wght@100..900&family=Jersey+10&display=swap"
-       rel="stylesheet">
-   
-   
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: #1A1B25;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader-container {
+      position: relative;
+      text-align: center;
+    }
+
+    .bottom-message {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      color: #fff;
+      font-family: 'Chakra Petch', sans-serif;
+      letter-spacing: 1px;
+      padding: 1rem;
+      min-width: 120px;
+      /* background-color: rgba(0, 0, 0, 0.2); */
+      border-radius: 8px;
+      /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    }
+
+    .dots {
+      display: inline-block;
+      width: 24px;
+      text-align: left;
+      margin-left: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .bottom-message {
+        padding: 0.8rem;
+        min-width: 100px;
+      }
+    }
+  </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Handjet:wght@100..900&family=Jersey+10&display=swap"
+    rel="stylesheet">
+
+
 </head>
+
 <body>
-
-
-
-
-  <div class="bottom-message" id="loadingMessage">
-    Loading
+  <div class="loader-container">
+    <div class="bottom-message" id="loadingMessage">
+      Loading<span class="dots"></span>
+    </div>
   </div>
 
   <script>
-    const loadingMessage = document.getElementById('loadingMessage');
+    const dotsElement = document.querySelector('.dots');
     let dots = 0;
 
     setInterval(() => {
-      // Cycle through the loading states
-      loadingMessage.innerText = 'Loading' + '.'.repeat(dots);
-      dots = (dots + 1) % 4; // Cycle through 0 to 3
-    }, 500); // Change the interval as needed
+      dotsElement.textContent = '.'.repeat(dots);
+      dots = (dots + 1) % 4;
+    }, 500);
   </script>
   <script>
-    window.addEventListener('load', function(ev) {
+    window.addEventListener('load', function (ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
             appRunner.runApp();
           });
         }
@@ -98,4 +122,5 @@
     });
   </script>
 </body>
+
 </html>
